@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:pageModel="clr-namespace:MauiStartFrom.PageModels"
+             xmlns:models="clr-namespace:MauiStartFrom.Models"
+             xmlns:strings="clr-namespace:MauiStartFrom.Resources.Strings"
+             x:DataType="pageModel:TaskDetailPageModel"
+             x:Class="MauiStartFrom.Pages.TaskDetailPage"
+             Title="{x:Static strings:AppStrings.Task}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="{x:Static strings:AppStrings.Delete}"
+            Command="{Binding DeleteCommand}"
+            Order="Primary"
+            Priority="0"
+            IconImageSource="{StaticResource IconDelete}" />
+    </ContentPage.ToolbarItems>        
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}" Padding="{StaticResource LayoutPadding}">
+                <sf:SfTextInputLayout 
+                    Hint="{x:Static strings:AppStrings.Task}">
+                    <Entry
+                        Text="{Binding Title}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout 
+                    Hint="{x:Static strings:AppStrings.Completed}">
+                    <CheckBox
+                        HorizontalOptions="End"
+                        IsChecked="{Binding IsCompleted}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout 
+                    IsVisible="{Binding IsExistingProject}" 
+                    Hint="{x:Static strings:AppStrings.Project}">
+                    <Picker 
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Name, x:DataType=models:Project}"
+                        SelectedItem="{Binding Project}"
+                        SelectedIndex="{Binding SelectedProjectIndex}" />
+                </sf:SfTextInputLayout>
+
+                <Button 
+                    HeightRequest="{OnIdiom 44, Desktop=60}"
+                    Text="{x:Static strings:AppStrings.Save}"
+                    Command="{Binding SaveCommand}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

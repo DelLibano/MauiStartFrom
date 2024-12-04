@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiStartFrom.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:strings="clr-namespace:MauiStartFrom.Resources.Strings"
+    xmlns:pages="clr-namespace:MauiStartFrom.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Title="{x:Static strings:AppStrings.AppTitle}">
+
+    <ShellContent
+        Title="{x:Static strings:AppStrings.Dashboard}"
+        Icon="{StaticResource IconDashboard}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Route="main" />
+
+    <ShellContent
+        Title="{x:Static strings:AppStrings.Projects}"
+        Icon="{StaticResource IconProjects}"
+        ContentTemplate="{DataTemplate pages:ProjectListPage}"
+        Route="projects" />
+
+    <ShellContent
+        Title="{x:Static strings:AppStrings.ManageMeta}"
+        Icon="{StaticResource IconMeta}"
+        ContentTemplate="{DataTemplate pages:ManageMetaPage}"
+        Route="manage" />
+
+    <Shell.FlyoutFooter>
+        <Grid Padding="15" ColumnDefinitions="*,*">
+            <sf:SfSegmentedControl x:Name="ThemeSegmentedControl" 
+                VerticalOptions="Center" HorizontalOptions="Center" SelectionChanged="ThemeSelectionChanged"
+                SegmentWidth="40" SegmentHeight="40">
+                <sf:SfSegmentedControl.ItemsSource>
+                    <x:Array Type="{x:Type sf:SfSegmentItem}">
+                        <sf:SfSegmentItem ImageSource="{StaticResource IconLight}"/>
+                        <sf:SfSegmentItem ImageSource="{StaticResource IconDark}"/>
+                    </x:Array>
+                </sf:SfSegmentedControl.ItemsSource>
+            </sf:SfSegmentedControl>
+            <sf:SfSegmentedControl Grid.Column="1" x:Name="LanguageControl"
+                VerticalOptions="Center" HorizontalOptions="Center" SelectionChanged="LaguageSelectionChanged"
+                SegmentWidth="40" SegmentHeight="40">
+                <sf:SfSegmentedControl.ItemsSource>
+                    <x:Array Type="{x:Type sf:SfSegmentItem}">
+                        <sf:SfSegmentItem ImageSource="{StaticResource IconEnglish}" />
+                        <sf:SfSegmentItem ImageSource="{StaticResource IconOther}" />
+                    </x:Array>
+                </sf:SfSegmentedControl.ItemsSource>
+            </sf:SfSegmentedControl>
+        </Grid>
+    </Shell.FlyoutFooter>
+
+</Shell>
