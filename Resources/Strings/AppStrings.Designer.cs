@@ -124,6 +124,15 @@ namespace MauiStartFrom.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to en-US.
+        /// </summary>
+        internal static string DefaultLang {
+            get {
+                return ResourceManager.GetString("DefaultLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
@@ -174,6 +183,15 @@ namespace MauiStartFrom.Resources.Strings {
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to it-IT.
+        /// </summary>
+        internal static string OtherLang {
+            get {
+                return ResourceManager.GetString("OtherLang", resourceCulture);
             }
         }
         

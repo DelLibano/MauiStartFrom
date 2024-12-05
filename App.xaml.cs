@@ -12,7 +12,7 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        string lang = Preferences.Get("LanguageSaved", "en-US");
+        string lang = Preferences.Get("LanguageSaved", AppStrings.DefaultLang);
         Thread.CurrentThread.CurrentCulture =
         Thread.CurrentThread.CurrentUICulture =
         CultureInfo.CurrentCulture =

@@ -7,6 +7,8 @@ namespace MauiStartFrom;
 
 public partial class AppShell : Shell
 {
+    private bool shouldRunSelectionChanged = true;
+
     public int AppThemeIndexSaved
     {
         get
@@ -28,7 +30,7 @@ public partial class AppShell : Shell
     {
         get
         {
-            return Preferences.Get(nameof(LanguageSaved), "en-US");
+            return Preferences.Get(nameof(LanguageSaved), AppStrings.DefaultLang);
         }
         set
         {
@@ -41,7 +43,7 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         ThemeSegmentedControl.SelectedIndex = AppThemeIndexSaved;
-        LanguageControl.SelectedIndex = LanguageSaved == "en-US" ? 0 : 1;
+        LanguageControl.SelectedIndex = LanguageSaved == AppStrings.DefaultLang ? 0 : 1;
     }
 
     public static async Task DisplaySnackbarAsync(string message)
@@ -79,17 +81,24 @@ public partial class AppShell : Shell
         Application.Current!.UserAppTheme = e.NewIndex == 0 ? AppTheme.Light : AppTheme.Dark;
     }
 
-    private async void LaguageSelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
+    private async void LanguageSelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
     {
+        if (!shouldRunSelectionChanged) return;
         if (e.OldIndex >= 0 && Application.Current is not null) //On Actual Change by user
         {
             if (await DisplayAlert(AppStrings.AreYouSure, AppStrings.ChangeLanguage, AppStrings.Yes, AppStrings.No))
             {
-                LanguageSaved = e.NewIndex == 0 ? "en-US" : "it-IT";
+                LanguageSaved = e.NewIndex == 0 ? AppStrings.DefaultLang : AppStrings.OtherLang;
                 Application.Current.Quit();
             }
+            else
+            {
+                shouldRunSelectionChanged = false;
+                LanguageControl.SelectedIndex = e.OldIndex;
+                shouldRunSelectionChanged = true;
+            }
         }
-        else LanguageSaved = e.NewIndex == 0 ? "en-US" : "it-IT"; //On Initialization
+        else LanguageSaved = e.NewIndex == 0 ? AppStrings.DefaultLang : AppStrings.OtherLang; //On Initialization
 
     }
 }

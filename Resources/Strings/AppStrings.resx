@@ -180,4 +180,10 @@
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="DefaultLang" xml:space="preserve">
+    <value>en-US</value>
+  </data>
+  <data name="OtherLang" xml:space="preserve">
+    <value>it-IT</value>
+  </data>
 </root>

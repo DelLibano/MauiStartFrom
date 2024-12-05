@@ -40,12 +40,12 @@
                 </sf:SfSegmentedControl.ItemsSource>
             </sf:SfSegmentedControl>
             <sf:SfSegmentedControl Grid.Column="1" x:Name="LanguageControl"
-                VerticalOptions="Center" HorizontalOptions="Center" SelectionChanged="LaguageSelectionChanged"
-                SegmentWidth="40" SegmentHeight="40">
+                VerticalOptions="Center" HorizontalOptions="Center" SelectionChanged="LanguageSelectionChanged"
+                SegmentWidth="50" SegmentHeight="40">
                 <sf:SfSegmentedControl.ItemsSource>
                     <x:Array Type="{x:Type sf:SfSegmentItem}">
-                        <sf:SfSegmentItem ImageSource="{StaticResource IconEnglish}" />
-                        <sf:SfSegmentItem ImageSource="{StaticResource IconOther}" />
+                        <sf:SfSegmentItem Text="{x:Static strings:AppStrings.DefaultLang}" />
+                        <sf:SfSegmentItem Text="{x:Static strings:AppStrings.OtherLang}" />
                     </x:Array>
                 </sf:SfSegmentedControl.ItemsSource>
             </sf:SfSegmentedControl>
