@@ -92,25 +92,20 @@
                 Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
                 Size="{StaticResource size240}" />
 
-    <FontImageSource x:Key="IconEnglish"
-                Glyph="{x:Static f:FluentUI.local_language_20_regular}"
-                FontFamily="{x:Static f:FluentUI.FontFamily}"
-                Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
-                Size="{StaticResource size240}" />
-    <FontImageSource x:Key="IconOther"
-                Glyph="{x:Static f:FluentUI.select_object_skew_edit_20_regular}"
-                FontFamily="{x:Static f:FluentUI.FontFamily}"
-                Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
-                Size="{StaticResource size240}" />
-
-
     <FontImageSource x:Key="IconLight"
                 Glyph="{x:Static f:FluentUI.weather_sunny_28_regular}"
                 FontFamily="{x:Static f:FluentUI.FontFamily}"
                 Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
                 Size="{StaticResource size240}" />
+    
     <FontImageSource x:Key="IconDark"
                 Glyph="{x:Static f:FluentUI.weather_moon_28_regular}"
+                FontFamily="{x:Static f:FluentUI.FontFamily}"
+                Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
+                Size="{StaticResource size240}" />
+
+    <FontImageSource x:Key="IconWeather"
+                Glyph="{x:Static f:FluentUI.weather_snowflake_32_regular}"
                 FontFamily="{x:Static f:FluentUI.FontFamily}"
                 Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
                 Size="{StaticResource size240}" />

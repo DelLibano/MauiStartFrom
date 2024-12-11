@@ -48,7 +48,7 @@ public partial class AppShell : Shell
 
     public static async Task DisplaySnackbarAsync(string message)
     {
-        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        CancellationTokenSource cancellationTokenSource = new();
 
         var snackbarOptions = new SnackbarOptions
         {

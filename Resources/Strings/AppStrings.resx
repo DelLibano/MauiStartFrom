@@ -186,4 +186,7 @@
   <data name="OtherLang" xml:space="preserve">
     <value>it-IT</value>
   </data>
+  <data name="Weather" xml:space="preserve">
+    <value>Weather</value>
+  </data>
 </root>

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace MauiStartFrom;
@@ -28,7 +29,7 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 		builder.Services.AddLogging(configure => configure.AddDebug());
 #endif
-
+        builder.Services.AddSingleton<XxxWebService>();
         builder.Services.AddSingleton<ProjectRepository>();
         builder.Services.AddSingleton<TaskRepository>();
         builder.Services.AddSingleton<CategoryRepository>();
@@ -37,6 +38,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ModalErrorHandler>();
         builder.Services.AddSingleton<MainPageModel>();
         builder.Services.AddSingleton<ProjectListPageModel>();
+        builder.Services.AddSingleton<WeatherListPageModel>();
         builder.Services.AddSingleton<ManageMetaPageModel>();
 
         builder.Services.AddTransientWithShellRoute<ProjectDetailPage, ProjectDetailPageModel>("project");

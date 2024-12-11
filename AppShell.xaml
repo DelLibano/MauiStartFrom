@@ -27,6 +27,12 @@
         ContentTemplate="{DataTemplate pages:ManageMetaPage}"
         Route="manage" />
 
+    <ShellContent
+        Title="{x:Static strings:AppStrings.Weather}"
+        Icon="{StaticResource IconWeather}"
+        ContentTemplate="{DataTemplate pages:WeatherListPage}"
+        Route="weather" />
+
     <Shell.FlyoutFooter>
         <Grid Padding="15" ColumnDefinitions="*,*">
             <sf:SfSegmentedControl x:Name="ThemeSegmentedControl" 
