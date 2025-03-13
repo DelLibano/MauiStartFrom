@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace MauiStartFrom;
